@@ -77,7 +77,7 @@ section {
     transform: translateY(30px);
     animation: fadeInUp 1s ease-out forwards;
     max-width: 900px; /* Keeps content readable */
-    width: 125%;
+    width: 100%;
     background: rgba(255, 255, 255, 0.8); /* Added semi-transparent background for better visibility */
     border-radius: 10px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
