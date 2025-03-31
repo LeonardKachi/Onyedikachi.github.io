@@ -16,14 +16,16 @@
 html, body {
     height: 100%;
     width: 100%;
-    background: url('images/future.jpg') no-repeat center center fixed;
+    background: url('images/future.jpg') no-repeat center center;
     background-size: cover;
+    background-attachment: fixed;
     color: var(--text-color);
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    padding-top: 80px; /* Fix for header overlap */
 }
 
 /* HEADER */
@@ -46,7 +48,7 @@ header {
 }
 
 .profile-pic {
-    width: 150px; /* Adjust size as needed */
+    width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
@@ -63,27 +65,18 @@ header {
     margin-top: 20px;
 }
 
-/* FOOTER */
-footer {
-    background: var(--primary-color);
-    color: var(--secondary-color);
-    text-align: center;
-    padding: 15px;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 14px;
-}
+/* CERTIFICATIONS SECTION */
 #certifications {
     text-align: center;
-    padding: 80px 20px;
-    background-color: #f8f8f8;
+    padding: 100px 20px;
+    background-color: var(--bg-color);
 }
 
 .certification-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
     gap: 20px;
 }
 
@@ -109,16 +102,28 @@ footer {
 
 .cert-card h3 {
     font-size: 18px;
-    color: #008000;
+    color: var(--primary-color);
     margin-bottom: 10px;
 }
 
 .cert-card p {
     font-size: 14px;
-    color: #333;
+    color: var(--text-color);
 }
 
-/* RESPONSIVE */
+/* FOOTER */
+footer {
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 15px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
     .profile-pic {
         width: 120px;
@@ -129,5 +134,4 @@ footer {
         max-width: 90%;
     }
 }
-
 
