@@ -5,7 +5,7 @@
     --secondary-color: #ffffff; /* White */
     --text-color: #333;
     --bg-color: #f8f8f8;
-    --transition-speed: 0.3s;
+    --transition-speed: 0.3s; /* Added transition speed */
 }
 
 * {
@@ -72,14 +72,24 @@ main {
 section {
     padding: 80px 10%;
     text-align: center;
-    min-height: 100vh;
+    min-height: 125vh;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease-out forwards;
     max-width: 900px; /* Keeps content readable */
     width: 100%;
+    background: rgba(255, 255, 255, 0.8); /* Added semi-transparent background for better visibility */
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+/* Improved text visibility */
+h1, h2, p {
+    color: #222;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Fade-in animation */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -103,3 +113,4 @@ footer {
     font-size: 14px;
     animation: fadeInUp 1s ease-out;
 }
+
