@@ -12,16 +12,12 @@
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
 }
-body {
-    background: url('images/future.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: var(--text-color);
-}
 
 html, body {
     height: 100%;
     width: 100%;
-    background: var(--bg-color);
+    background: url('images/future.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: var(--text-color);
     text-align: center;
     display: flex;
