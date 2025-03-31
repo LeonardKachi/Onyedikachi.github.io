@@ -1,81 +1,91 @@
+/* General Styles */
 :root {
-    --primary-color: #008000; /* Green */
+    --primary-color: #006400; /* Dark green */
     --secondary-color: #ffffff; /* White */
     --text-color: #333;
-    --bg-color: #f8f8f8;
-    --transition-speed: 0.3s;
+    --background-overlay: rgba(0, 0, 0, 0.5);
 }
 
-* {
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Arial', sans-serif;
-}
-
-html, body {
-    height: 100%;
-    width: 100%;
-    background: var(--bg-color);
+    background: url('assets/background.jpg') no-repeat center center/cover;
     color: var(--text-color);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    position: relative;
 }
 
-/* HEADER */
+/* Background Overlay */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background-overlay);
+    z-index: -1;
+}
+
+/* Header */
 header {
     background: var(--primary-color);
     color: var(--secondary-color);
-    padding: 20px;
+    padding: 15px;
     text-align: center;
     position: fixed;
     width: 100%;
     top: 0;
-    left: 0;
     z-index: 1000;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* NAVIGATION */
 nav a {
     color: var(--secondary-color);
     text-decoration: none;
     padding: 10px;
-    transition: color var(--transition-speed);
+    font-weight: bold;
 }
 
 nav a:hover {
-    color: #ddd;
+    text-decoration: underline;
 }
 
-/* PROFILE PICTURE */
-.profile-container {
-    margin-top: 120px; /* Adjust for fixed header */
+/* Main Content */
+main {
+    padding: 100px 20px 20px;
+    text-align: center;
 }
 
+/* Profile Picture */
 .profile-pic {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid var(--primary-color);
+    margin: 20px 0;
 }
 
-/* MAIN CONTENT */
-.bio {
-    background: rgba(255, 255, 255, 0.95);
-    padding: 20px;
-    border-radius: 12px;
-    max-width: 800px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-}
-
+/* Typography */
 h1, h2, h3 {
     color: var(--primary-color);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+}
+
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+/* Centered Content */
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    text-align: center;
 }
 
 /* CERTIFICATIONS SECTION */
@@ -135,19 +145,18 @@ footer {
     font-size: 14px;
 }
 
-/* RESPONSIVE DESIGN */
+/* Responsive Design */
 @media (max-width: 768px) {
     .profile-pic {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
     }
-
-    .bio {
-        max-width: 90%;
+    
+    .intro {
+        padding: 10px;
     }
-
-    .certification-list {
-        flex-direction: column;
-        align-items: center;
+    
+    header {
+        padding: 10px;
     }
 }
