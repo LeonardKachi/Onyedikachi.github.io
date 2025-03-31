@@ -1,18 +1,19 @@
 /* General Styles */
 :root {
-    --primary-color: #006400; /* Dark green */
+    --primary-color: #0044cc; /* Blue */
     --secondary-color: #ffffff; /* White */
-    --text-color: #333;
-    --background-overlay: rgba(0, 0, 0, 0.5);
-}
+    --text-color: #000000; /* Black */
+    --background-overlay: rgba(255, 255, 255, 0.9);
+    --background: #f4f4f4; /* Light Gray */
+    --font-family: 'Arial', sans-serif;
+    --header-color: #0044cc; /* Blue */}
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: var(--font-family);
     margin: 0;
     padding: 0;
-    background: url('assets/background.jpg') no-repeat center center/cover;
+    background: var(--background);
     color: var(--text-color);
-    position: relative;
 }
 
 /* Background Overlay */
@@ -31,51 +32,106 @@ body::before {
 header {
     background: var(--primary-color);
     color: var(--secondary-color);
-    padding: 15px;
+    padding: 15px 0;
     text-align: center;
-    position: fixed;
+    position: relative;
     width: 100%;
     top: 0;
     z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
 }
 
 nav a {
     color: var(--secondary-color);
     text-decoration: none;
-    padding: 10px;
+    padding: 10px 15px;
     font-weight: bold;
+    transition: 0.3s ease-in-out;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
 }
 
 nav a:hover {
-    text-decoration: underline;
+    background: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 /* Main Content */
 main {
-    padding: 100px 20px 20px;
+    padding: 120px 20px 20px;
     text-align: center;
 }
 
-/* Profile Picture */
+/* Profile Section */
 .profile-pic {
     width: 150px;
     height: 150px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid var(--primary-color);
-    margin: 20px 0;
+    margin-top: 20px;
 }
 
 /* Typography */
-h1, h2, h3 {
+h1 {
+    color: var(--secondary-color);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+h2, h3 {
     color: var(--primary-color);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 26px;
+    margin-top: 20px;
 }
 
 p {
     font-size: 1.1em;
     line-height: 1.6;
 }
+/* MY JOURNEY SECTION */
+/* ABOUT SECTION - Reduce Excess Space */
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Keeps the content centered */
+    text-align: left; /* Ensures paragraphs stay left-aligned */
+    padding: 50px 20px; /* Reduce padding */
+    min-height: auto; /* Remove fixed height */
+    margin: 50px auto; /* Adds better spacing control */
+    max-width: 1000px; /* Prevents content from stretching too much */
+}
+
+/* Center Headers Only */
+#about h2, 
+#about h3 {
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Keep Paragraphs and Lists Left-Aligned */
+#about p, 
+#about ul {
+    text-align: left;
+    max-width: 800px; /* Keeps text readable */
+    margin: 10px auto;
+}
+
 
 /* Centered Content */
 .intro {
@@ -132,6 +188,39 @@ p {
     font-size: 14px;
     color: var(--text-color);
 }
+/* PROJECT LINK STYLING */
+.project-link {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    color: #0066cc; /* Nice blue color */
+    font-size: 1.2em;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+/* Cool Hover Effect - Underline Animation */
+.project-link::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #0066cc;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.project-link:hover {
+    color: #004499;
+    transform: scale(1.05); /* Slight enlargement */
+}
+
+.project-link:hover::after {
+    transform: scaleX(1);
+}
 
 /* FOOTER */
 footer {
@@ -139,10 +228,21 @@ footer {
     color: var(--secondary-color);
     text-align: center;
     padding: 15px;
-    position: fixed;
+    position: relative;
     bottom: 0;
     width: 100%;
     font-size: 14px;
+}
+/* Footer Link Styling */
+footer a {
+    color: var(--secondary-color); /* White */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #ddd; /* Light gray on hover */
 }
 
 /* Responsive Design */
@@ -159,4 +259,34 @@ footer {
     header {
         padding: 10px;
     }
+
+    nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply Animation to Sections */
+section {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+/* Stagger Animations */
+#about {
+    animation-delay: 0.2s;
+}
+#certifications {
+    animation-delay: 0.4s;
 }

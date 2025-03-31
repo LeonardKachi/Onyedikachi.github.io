@@ -1,12 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me | Onyedikachi Henry</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
 <header>
     <h1>Contact Me</h1>
- <link rel="stylesheet" href="./style.css">   
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="resume.html">Resume</a>
+        <a href="blog.html">Blog</a>
+    </nav>
 </header>
-<script src="./script.js"></script>
-<script src="./blog.js"></script>
 
-<section>
-    <p>📧 Email: <a href="mailto:henryleo480@gmail.com">henryleo480@gmail.com</a></p>
-    <p>🔗 LinkedIn: <a href="https://www.linkedin.com/in/onyedikachi-obidiegwu-17068b238">Onyedikachi's LinkedIn</a></p>
-    <p>🐙 GitHub: <a href="https://github.com/LeonardKachi">Onyedikachi's GitHub</a></p>
+<section class="contact-section">
+    <div class="container">
+        <h2>Let's Connect! </h2>
+        <p>Have a project in mind? Want to collaborate? Feel free to reach out! 🚀</p>
+
+        <form action="mailto:henryleo480@gmail.com" method="POST" enctype="text/plain">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+
+        <div class="social-links">
+            <p>Or reach out via:</p>
+            <a href="https://www.linkedin.com/in/onyedikachi-obidiegwu-17068b238" target="_blank">LinkedIn</a> |
+            <a href="https://github.com/LeonardKachi" target="_blank">GitHub</a> |
+            <a href="mailto:henryleo480@gmail.com">Email Me</a>
+        </div>
+    </div>
 </section>
+
+<footer>
+    <p>© 2025 Onyedikachi Henry. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
+
