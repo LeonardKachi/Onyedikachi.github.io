@@ -15,7 +15,7 @@
     font-family: 'Arial', sans-serif;
 }
 body {
-    background: url('images/future.jpg') no-repeat center center fixed;
+    background: url('future.jpg') no-repeat center center fixed;
     background-size: cover;
     color: var(--text-color);
 }
