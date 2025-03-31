@@ -1,45 +1,46 @@
-// script.js - JavaScript for animations and interactions
+// Updated script.js - Fixes scrolling issues & enhances navigation
 
 document.addEventListener("DOMContentLoaded", function() {
-    const sections = document.querySelectorAll("section");
+    console.log("Script Loaded Successfully!");
+    
+    // Fix scrolling issue
+    document.body.style.overflow = "auto";
+    
+    // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll("nav a");
-
-    function revealSections() {
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            if (sectionTop < window.innerHeight - 100) {
-                section.classList.add("show");
-            }
-        });
-    }
-
-    function highlightNav() {
-        let scrollPosition = window.scrollY;
-        sections.forEach((section, index) => {
-            if (scrollPosition >= section.offsetTop - 100) {
-                navLinks.forEach(link => link.classList.remove("active"));
-                navLinks[index].classList.add("active");
-            }
-        });
-    }
-
-    window.addEventListener("scroll", () => {
-        revealSections();
-        highlightNav();
-    });
-
-    // Smooth Scrolling
     navLinks.forEach(link => {
-        link.addEventListener("click", (e) => {
+        link.addEventListener("click", function(e) {
             e.preventDefault();
-            const targetId = link.getAttribute("href").substring(1);
+            const targetId = this.getAttribute("href").substring(1);
             const targetSection = document.getElementById(targetId);
-            window.scrollTo({
-                top: targetSection.offsetTop - 50,
-                behavior: "smooth"
-            });
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 60, // Adjust for header height
+                    behavior: "smooth"
+                });
+            }
         });
     });
 
-    revealSections(); // Run on page load
+    // Highlight active navigation link
+    window.addEventListener("scroll", function() {
+        let scrollPosition = window.scrollY + 80;
+        navLinks.forEach(link => {
+            let section = document.getElementById(link.getAttribute("href").substring(1));
+            if (section && scrollPosition >= section.offsetTop && scrollPosition < section.offsetTop + section.offsetHeight) {
+                link.classList.add("active");
+            } else {
+                link.classList.remove("active");
+            }
+        });
+    });
+
+    // Fix navigation access issue
+    document.querySelectorAll("a").forEach(anchor => {
+        anchor.addEventListener("click", function(e) {
+            if (!this.href.includes("#")) {
+                window.location.href = this.href;
+            }
+        });
+    });
 });
