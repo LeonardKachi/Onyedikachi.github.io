@@ -14,13 +14,11 @@
     box-sizing: border-box;
     font-family: 'Arial', sans-serif;
 }
-
 body {
-    background-color: var(--bg-color);
+    background: url('images/future.jpg') no-repeat center center fixed;
+    background-size: cover;
     color: var(--text-color);
-    overflow-x: hidden;
 }
-
 header {
     background: var(--primary-color);
     color: var(--secondary-color);
