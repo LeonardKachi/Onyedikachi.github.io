@@ -15,13 +15,16 @@
     font-family: 'Arial', sans-serif;
 }
 
-body {
+html, body {
+    height: 100%;
+    width: 100%;
+    overflow-x: hidden;
     background: url('future.jpg') no-repeat center center fixed;
     background-size: cover;
     color: var(--text-color);
 }
 
-
+/* HEADER */
 header {
     background: var(--primary-color);
     color: var(--secondary-color);
@@ -35,6 +38,7 @@ header {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* NAVIGATION */
 nav {
     display: flex;
     justify-content: center;
@@ -54,18 +58,26 @@ nav a:hover {
     transform: scale(1.1);
 }
 
-/* Fix content covered by header */
+/* MAIN CONTENT */
 main {
-    padding-top: 100px;
+    padding-top: 120px; /* Adjusted for fixed header */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+/* SECTIONS */
 section {
-    padding: 100px 20px;
+    padding: 80px 10%;
     text-align: center;
     min-height: 100vh;
     opacity: 0;
     transform: translateY(30px);
     animation: fadeInUp 1s ease-out forwards;
+    max-width: 900px; /* Keeps content readable */
+    width: 100%;
 }
 
 @keyframes fadeInUp {
@@ -79,6 +91,7 @@ section {
     }
 }
 
+/* FOOTER */
 footer {
     background: var(--primary-color);
     color: var(--secondary-color);
@@ -90,4 +103,3 @@ footer {
     font-size: 14px;
     animation: fadeInUp 1s ease-out;
 }
-
