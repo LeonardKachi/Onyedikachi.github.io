@@ -1,11 +1,9 @@
-/* Enhanced style.css with animations & improved layout */
-
 :root {
     --primary-color: #008000; /* Green */
     --secondary-color: #ffffff; /* White */
     --text-color: #333;
     --bg-color: #f8f8f8;
-    --transition-speed: 0.3s; /* Added transition speed */
+    --transition-speed: 0.3s;
 }
 
 * {
@@ -18,10 +16,13 @@
 html, body {
     height: 100%;
     width: 100%;
-    overflow-x: hidden;
-    background: url('future.jpg') no-repeat center center fixed;
-    background-size: cover;
+    background: var(--bg-color);
     color: var(--text-color);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 /* HEADER */
@@ -38,67 +39,27 @@ header {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-/* NAVIGATION */
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
+/* PROFILE PICTURE */
+.profile-container {
+    margin-top: 120px; /* Adjust for fixed header */
 }
 
-nav a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    font-weight: bold;
-    transition: color var(--transition-speed), transform 0.2s;
-    padding: 10px;
-}
-
-nav a:hover {
-    color: #cccccc;
-    transform: scale(1.1);
+.profile-pic {
+    width: 150px; /* Adjust size as needed */
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color);
 }
 
 /* MAIN CONTENT */
-main {
-    padding-top: 120px; /* Adjusted for fixed header */
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-/* SECTIONS */
-section {
-    padding: 80px 10%;
-    text-align: center;
-    min-height: 100vh;
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 1s ease-out forwards;
-    max-width: 900px; /* Keeps content readable */
-    width: 100%;
-    background: rgba(255, 255, 255, 0.8); /* Added semi-transparent background for better visibility */
-    border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Improved text visibility */
-h1, h2, p {
-    color: #222;
-    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
-}
-
-/* Fade-in animation */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.bio {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 12px;
+    max-width: 600px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 /* FOOTER */
@@ -107,10 +68,22 @@ footer {
     color: var(--secondary-color);
     text-align: center;
     padding: 15px;
-    position: relative;
+    position: fixed;
     bottom: 0;
     width: 100%;
     font-size: 14px;
-    animation: fadeInUp 1s ease-out;
 }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+    }
+
+    .bio {
+        max-width: 90%;
+    }
+}
+
 
